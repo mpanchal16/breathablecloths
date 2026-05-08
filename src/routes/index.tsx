@@ -34,15 +34,15 @@ function Index() {
           <div className="flex items-center px-6 md:px-16 py-20 order-2 md:order-1">
             <div className="max-w-md">
               <p className="uppercase tracking-[0.3em] text-xs text-muted-foreground mb-6">
-                New · Spring Collection
+                The Breathable &amp; Lively Line
               </p>
               <h1 className="font-display text-5xl md:text-6xl leading-[1.05]">
-                Slow mornings,<br />
-                softer evenings.
+                Cloth that<br />
+                breathes with you.
               </h1>
               <p className="mt-6 text-muted-foreground leading-relaxed">
-                Yoga and sleepwear cut from organic linen and cotton, in colours
-                pulled from the garden. Made to be lived in — and washed often.
+                Yoga and sleepwear cut only from organic cotton and linen — natural fibres
+                that move air, regulate temperature, and let your skin live freely.
               </p>
               <div className="mt-8 flex gap-3">
                 <Button asChild size="lg">
