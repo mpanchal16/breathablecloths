@@ -39,6 +39,28 @@ function Index() {
     },
   });
 
+  const [sending, setSending] = useState(false);
+  const onContactSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    const parsed = contactSchema.safeParse({
+      name: fd.get("name"),
+      email: fd.get("email"),
+      message: fd.get("message"),
+    });
+    if (!parsed.success) {
+      toast.error(parsed.error.issues[0].message);
+      return;
+    }
+    setSending(true);
+    setTimeout(() => {
+      setSending(false);
+      form.reset();
+      toast.success("Message sent", { description: "The owners will get back to you within 1–2 days." });
+    }, 700);
+  };
+
   return (
     <div>
       {/* Hero */}
