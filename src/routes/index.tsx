@@ -10,7 +10,7 @@ import sleepImg from "@/assets/sleep.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Lila & Linen — Yoga & Sleepwear for Slow Rituals" },
+      { title: "LinenCotton Yoga Co. — Yoga & Sleepwear for Slow Rituals" },
       { name: "description", content: "Considered yoga & sleepwear in soft naturals. Free worldwide shipping over $150." },
     ],
   }),

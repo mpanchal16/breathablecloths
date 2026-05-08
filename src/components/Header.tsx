@@ -6,7 +6,7 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
         <Link to="/" className="font-display text-2xl tracking-wide">
-          Lila &amp; Linen
+          LinenCotton Yoga Co.
         </Link>
         <nav className="hidden md:flex items-center gap-8 text-sm uppercase tracking-widest">
           <Link to="/shop" activeProps={{ className: "text-primary" }} className="hover:text-primary transition-colors">
@@ -38,7 +38,7 @@ export function Footer() {
     <footer className="border-t border-border/60 mt-24">
       <div className="container mx-auto px-6 py-12 grid md:grid-cols-3 gap-10">
         <div>
-          <h3 className="font-display text-2xl mb-3">Lila &amp; Linen</h3>
+          <h3 className="font-display text-2xl mb-3">LinenCotton Yoga Co.</h3>
           <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
             Quietly considered yoga &amp; sleepwear for the slow rituals that hold a day together.
           </p>
@@ -61,7 +61,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-border/60 py-6 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Lila &amp; Linen. Crafted with care.
+        © {new Date().getFullYear()} LinenCotton Yoga Co.. Crafted with care.
       </div>
     </footer>
   );

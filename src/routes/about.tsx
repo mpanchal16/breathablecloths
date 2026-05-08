@@ -4,8 +4,8 @@ import yogaImg from "@/assets/yoga.jpg";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "Our Story — Lila & Linen" },
-      { name: "description", content: "Behind Lila & Linen: a small studio making considered yoga and sleepwear in organic fabrics." },
+      { title: "Our Story — LinenCotton Yoga Co." },
+      { name: "description", content: "Behind LinenCotton Yoga Co.: a small studio making considered yoga and sleepwear in organic fabrics." },
     ],
   }),
   component: About,
@@ -21,7 +21,7 @@ function About() {
         <img src={yogaImg} alt="Studio" loading="lazy" className="rounded-sm aspect-[4/5] object-cover" />
         <div className="space-y-5 text-muted-foreground leading-relaxed">
           <p>
-            Lila &amp; Linen began on a quiet morning in a sunlit kitchen, with a question:
+            LinenCotton Yoga Co. began on a quiet morning in a sunlit kitchen, with a question:
             what would the perfect set look like — for the long stretch on the mat, and the
             slow hour before sleep?
           </p>
