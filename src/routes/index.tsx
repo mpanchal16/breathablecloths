@@ -1,8 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
+import { z } from "zod";
 import { storefrontApiRequest, PRODUCTS_QUERY, FABRIC_FILTER, type ShopifyProduct } from "@/lib/shopify";
 import { ProductCard } from "@/components/ProductCard";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Mail, MapPin, Clock, Phone } from "lucide-react";
+import { toast } from "sonner";
 import heroImg from "@/assets/hero.jpg";
 import yogaImg from "@/assets/yoga.jpg";
 import sleepImg from "@/assets/sleep.jpg";
@@ -17,6 +24,12 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+const contactSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100),
+  email: z.string().trim().email("Invalid email").max(255),
+  message: z.string().trim().min(1, "Message is required").max(1000),
+});
+
 function Index() {
   const { data } = useQuery({
     queryKey: ["products", "featured"],
@@ -25,6 +38,28 @@ function Index() {
       return (res?.data?.products?.edges ?? []) as ShopifyProduct[];
     },
   });
+
+  const [sending, setSending] = useState(false);
+  const onContactSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    const parsed = contactSchema.safeParse({
+      name: fd.get("name"),
+      email: fd.get("email"),
+      message: fd.get("message"),
+    });
+    if (!parsed.success) {
+      toast.error(parsed.error.issues[0].message);
+      return;
+    }
+    setSending(true);
+    setTimeout(() => {
+      setSending(false);
+      form.reset();
+      toast.success("Message sent", { description: "The owners will get back to you within 1–2 days." });
+    }, 700);
+  };
 
   return (
     <div>
@@ -195,6 +230,77 @@ function Index() {
             <h3 className="font-display text-2xl">Made to last</h3>
             <p className="mt-2 text-sm text-muted-foreground">Organic fabrics, gentle stitching, easy 30-day returns.</p>
           </div>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="container mx-auto px-6 py-24">
+        <div className="grid md:grid-cols-2 gap-14">
+          <div>
+            <p className="uppercase tracking-[0.3em] text-xs text-muted-foreground">Visit & write</p>
+            <h2 className="font-display text-4xl md:text-5xl mt-3">Reach the owners.</h2>
+            <p className="text-muted-foreground mt-4 max-w-md leading-relaxed">
+              We're a small studio of two — drop in for a fitting, or send us a note. A real
+              person reads every message.
+            </p>
+
+            <div className="mt-10 space-y-5 text-sm">
+              <div className="flex gap-3">
+                <Clock className="h-5 w-5 text-primary mt-0.5 shrink-0" />
+                <div>
+                  <p className="font-medium">Studio hours</p>
+                  <p className="text-muted-foreground mt-1">
+                    Mon – Fri · 10:00 – 18:00<br />
+                    Sat · 11:00 – 16:00<br />
+                    Sun · closed
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <MapPin className="h-5 w-5 text-primary mt-0.5 shrink-0" />
+                <div>
+                  <p className="font-medium">Studio</p>
+                  <p className="text-muted-foreground mt-1">
+                    Rua das Flores 42<br />4050-262 Porto, Portugal
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <Mail className="h-5 w-5 text-primary mt-0.5 shrink-0" />
+                <div>
+                  <p className="font-medium">Email the owners</p>
+                  <a href="mailto:hello@linencottonyoga.co" className="text-muted-foreground hover:text-foreground">
+                    hello@linencottonyoga.co
+                  </a>
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <Phone className="h-5 w-5 text-primary mt-0.5 shrink-0" />
+                <div>
+                  <p className="font-medium">Phone</p>
+                  <p className="text-muted-foreground mt-1">+351 220 000 000</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form onSubmit={onContactSubmit} className="bg-secondary/60 p-8 md:p-10 rounded-sm space-y-5">
+            <div>
+              <Label htmlFor="c-name">Name</Label>
+              <Input id="c-name" name="name" maxLength={100} required className="mt-2" />
+            </div>
+            <div>
+              <Label htmlFor="c-email">Email</Label>
+              <Input id="c-email" name="email" type="email" maxLength={255} required className="mt-2" />
+            </div>
+            <div>
+              <Label htmlFor="c-message">Message</Label>
+              <Textarea id="c-message" name="message" maxLength={1000} required rows={6} className="mt-2" />
+            </div>
+            <Button type="submit" size="lg" disabled={sending} className="w-full">
+              {sending ? "Sending…" : "Send message"}
+            </Button>
+          </form>
         </div>
       </section>
     </div>
