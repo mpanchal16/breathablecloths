@@ -53,6 +53,10 @@ export async function storefrontApiRequest(query: string, variables: Record<stri
   return data;
 }
 
+// Only sell items made of cotton or linen.
+// Matches against title, description, tags, product_type, vendor, etc.
+export const FABRIC_FILTER = "(tag:cotton OR tag:linen OR title:cotton OR title:linen OR product_type:cotton OR product_type:linen)";
+
 export const PRODUCTS_QUERY = `
   query GetProducts($first: Int!, $query: String) {
     products(first: $first, query: $query) {
