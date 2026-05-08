@@ -40,6 +40,9 @@ function Index() {
                 Cloth that<br />
                 breathes with you.
               </h1>
+              <p className="mt-4 font-display italic text-xl text-foreground/80">
+                Pure Comfort for Every Move
+              </p>
               <p className="mt-6 text-muted-foreground leading-relaxed">
                 Yoga and sleepwear cut only from organic cotton and linen — natural fibres
                 that move air, regulate temperature, and let your skin live freely.
