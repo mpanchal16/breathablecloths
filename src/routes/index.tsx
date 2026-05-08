@@ -34,15 +34,15 @@ function Index() {
           <div className="flex items-center px-6 md:px-16 py-20 order-2 md:order-1">
             <div className="max-w-md">
               <p className="uppercase tracking-[0.3em] text-xs text-muted-foreground mb-6">
-                New · Spring Collection
+                The Breathable &amp; Lively Line
               </p>
               <h1 className="font-display text-5xl md:text-6xl leading-[1.05]">
-                Slow mornings,<br />
-                softer evenings.
+                Cloth that<br />
+                breathes with you.
               </h1>
               <p className="mt-6 text-muted-foreground leading-relaxed">
-                Yoga and sleepwear cut from organic linen and cotton, in colours
-                pulled from the garden. Made to be lived in — and washed often.
+                Yoga and sleepwear cut only from organic cotton and linen — natural fibres
+                that move air, regulate temperature, and let your skin live freely.
               </p>
               <div className="mt-8 flex gap-3">
                 <Button asChild size="lg">
@@ -85,6 +85,76 @@ function Index() {
               <h2 className="font-display text-4xl mt-1">Sleepwear</h2>
             </div>
           </Link>
+        </div>
+      </section>
+
+      {/* Why cotton & linen */}
+      <section className="bg-cream/60 border-y border-border/60">
+        <div className="container mx-auto px-6 py-24 grid lg:grid-cols-12 gap-12 items-start">
+          <div className="lg:col-span-4 lg:sticky lg:top-24">
+            <p className="uppercase tracking-[0.3em] text-xs text-muted-foreground">Why we only use</p>
+            <h2 className="font-display text-5xl mt-3 leading-[1.05]">
+              Cotton<br />&amp; linen.
+            </h2>
+            <p className="mt-6 text-muted-foreground leading-relaxed">
+              Synthetics trap heat, hold sweat, and shed microplastics into your skin and the
+              ocean. Plant fibres do the opposite — they let your body do what it&apos;s
+              designed to do: breathe.
+            </p>
+          </div>
+          <ul className="lg:col-span-8 grid sm:grid-cols-2 gap-x-10 gap-y-10">
+            <li>
+              <p className="font-display text-3xl text-primary">01</p>
+              <h3 className="font-display text-xl mt-2">Breathable by nature</h3>
+              <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                Linen&apos;s hollow fibres and cotton&apos;s open weave move air constantly, so
+                heat and moisture leave the skin instead of pooling against it. You stay cool
+                in a flow, warm in stillness.
+              </p>
+            </li>
+            <li>
+              <p className="font-display text-3xl text-primary">02</p>
+              <h3 className="font-display text-xl mt-2">Thermoregulating</h3>
+              <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                Both fibres absorb up to 20% of their weight in moisture before feeling damp —
+                wicking sweat during practice and keeping your bed cool through the night.
+              </p>
+            </li>
+            <li>
+              <p className="font-display text-3xl text-primary">03</p>
+              <h3 className="font-display text-xl mt-2">Kind to skin</h3>
+              <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                Hypoallergenic, naturally antibacterial, and free of the petrochemical
+                finishes used on most activewear — gentler for sensitive skin and long hours
+                of contact.
+              </p>
+            </li>
+            <li>
+              <p className="font-display text-3xl text-primary">04</p>
+              <h3 className="font-display text-xl mt-2">A living fibre</h3>
+              <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                Cotton and linen soften with every wash and biodegrade at the end of their
+                life. No microplastics shed into your body, your machine, or the sea.
+              </p>
+            </li>
+            <li>
+              <p className="font-display text-3xl text-primary">05</p>
+              <h3 className="font-display text-xl mt-2">Better sleep</h3>
+              <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                Stable skin temperature is one of the strongest signals for deep sleep.
+                Linen sleepwear reduces night-time overheating — the most common cause of
+                restless sleep.
+              </p>
+            </li>
+            <li>
+              <p className="font-display text-3xl text-primary">06</p>
+              <h3 className="font-display text-xl mt-2">Made to last</h3>
+              <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                Linen is among the strongest natural fibres on earth; long-staple cotton, the
+                softest. Cared for gently, our pieces are built to be worn for years.
+              </p>
+            </li>
+          </ul>
         </div>
       </section>
 
