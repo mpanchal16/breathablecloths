@@ -15,7 +15,7 @@ export const Route = createFileRoute("/shop")({
   validateSearch: searchSchema,
   head: () => ({
     meta: [
-      { title: "Shop — Lila & Linen" },
+      { title: "Shop — LinenCotton Yoga Co." },
       { name: "description", content: "Browse yoga and sleepwear in soft naturals. Filter by category and size." },
     ],
   }),

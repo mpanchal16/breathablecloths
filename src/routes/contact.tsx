@@ -10,8 +10,8 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Lila & Linen" },
-      { name: "description", content: "Get in touch with the Lila & Linen studio. Email, address, hours, and a contact form." },
+      { title: "Contact — LinenCotton Yoga Co." },
+      { name: "description", content: "Get in touch with the LinenCotton Yoga Co. studio. Email, address, hours, and a contact form." },
     ],
   }),
   component: Contact,
@@ -63,8 +63,8 @@ function Contact() {
               <Mail className="h-5 w-5 text-primary mt-0.5" />
               <div>
                 <p className="font-medium">Email</p>
-                <a href="mailto:hello@lilaandlinen.co" className="text-muted-foreground hover:text-foreground">
-                  hello@lilaandlinen.co
+                <a href="mailto:hello@linencottonyoga.co" className="text-muted-foreground hover:text-foreground">
+                  hello@linencottonyoga.co
                 </a>
               </div>
             </div>
@@ -88,7 +88,7 @@ function Contact() {
               <Instagram className="h-5 w-5 text-primary mt-0.5" />
               <div>
                 <p className="font-medium">Social</p>
-                <a href="#" className="text-muted-foreground hover:text-foreground">@lilaandlinen</a>
+                <a href="#" className="text-muted-foreground hover:text-foreground">@linencottonyoga</a>
               </div>
             </div>
           </div>

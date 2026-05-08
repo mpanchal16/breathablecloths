@@ -51,9 +51,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lila & Linen — Yoga & Sleepwear" },
+      { title: "LinenCotton Yoga Co. — Yoga & Sleepwear" },
       { name: "description", content: "Quietly considered yoga and sleepwear, made for slow rituals. Worldwide shipping." },
-      { property: "og:title", content: "Lila & Linen" },
+      { property: "og:title", content: "LinenCotton Yoga Co." },
       { property: "og:description", content: "Yoga & sleepwear for slow rituals." },
       { property: "og:type", content: "website" },
     ],
