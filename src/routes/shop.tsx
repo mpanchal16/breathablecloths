@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useMemo, useState } from "react";
 import { z } from "zod";
-import { storefrontApiRequest, PRODUCTS_QUERY, type ShopifyProduct } from "@/lib/shopify";
+import { storefrontApiRequest, PRODUCTS_QUERY, FABRIC_FILTER, type ShopifyProduct } from "@/lib/shopify";
 import { ProductCard } from "@/components/ProductCard";
 import { Button } from "@/components/ui/button";
 
@@ -30,9 +30,9 @@ function Shop() {
   const [selectedSize, setSelectedSize] = useState<string | undefined>(size);
 
   const { data, isLoading } = useQuery({
-    queryKey: ["products", "all"],
+    queryKey: ["products", "all", "cotton-linen"],
     queryFn: async () => {
-      const res = await storefrontApiRequest(PRODUCTS_QUERY, { first: 50, query: null });
+      const res = await storefrontApiRequest(PRODUCTS_QUERY, { first: 50, query: FABRIC_FILTER });
       return (res?.data?.products?.edges ?? []) as ShopifyProduct[];
     },
   });

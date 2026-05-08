@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { storefrontApiRequest, PRODUCTS_QUERY, type ShopifyProduct } from "@/lib/shopify";
+import { storefrontApiRequest, PRODUCTS_QUERY, FABRIC_FILTER, type ShopifyProduct } from "@/lib/shopify";
 import { ProductCard } from "@/components/ProductCard";
 import { Button } from "@/components/ui/button";
 import heroImg from "@/assets/hero.jpg";
@@ -21,7 +21,7 @@ function Index() {
   const { data } = useQuery({
     queryKey: ["products", "featured"],
     queryFn: async () => {
-      const res = await storefrontApiRequest(PRODUCTS_QUERY, { first: 4, query: null });
+      const res = await storefrontApiRequest(PRODUCTS_QUERY, { first: 4, query: FABRIC_FILTER });
       return (res?.data?.products?.edges ?? []) as ShopifyProduct[];
     },
   });
