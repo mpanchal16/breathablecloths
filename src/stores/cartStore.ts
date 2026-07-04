@@ -1,9 +1,6 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
-import {
-  storefrontApiRequest,
-  type ShopifyProduct,
-} from "@/lib/shopify";
+import { storefrontApiRequest, type ShopifyProduct } from "@/lib/shopify";
 
 export interface CartItem {
   lineId: string | null;
@@ -71,11 +68,13 @@ function formatCheckoutUrl(checkoutUrl: string): string {
   }
 }
 
-function isCartNotFoundError(userErrors: Array<{ field: string[] | null; message: string }>): boolean {
+function isCartNotFoundError(
+  userErrors: Array<{ field: string[] | null; message: string }>,
+): boolean {
   return userErrors.some(
     (e) =>
       e.message.toLowerCase().includes("cart not found") ||
-      e.message.toLowerCase().includes("does not exist")
+      e.message.toLowerCase().includes("does not exist"),
   );
 }
 
@@ -102,7 +101,7 @@ async function addLineToShopifyCart(cartId: string, item: CartItem) {
   const lines = data?.data?.cartLinesAdd?.cart?.lines?.edges || [];
   const newLine = lines.find(
     (l: { node: { id: string; merchandise: { id: string } } }) =>
-      l.node.merchandise.id === item.variantId
+      l.node.merchandise.id === item.variantId,
   );
   return { success: true, lineId: newLine?.node?.id };
 }
@@ -119,7 +118,10 @@ async function updateShopifyCartLine(cartId: string, lineId: string, quantity: n
 }
 
 async function removeLineFromShopifyCart(cartId: string, lineId: string) {
-  const data = await storefrontApiRequest(CART_LINES_REMOVE_MUTATION, { cartId, lineIds: [lineId] });
+  const data = await storefrontApiRequest(CART_LINES_REMOVE_MUTATION, {
+    cartId,
+    lineIds: [lineId],
+  });
   const userErrors = data?.data?.cartLinesRemove?.userErrors || [];
   if (isCartNotFoundError(userErrors)) return { success: false, cartNotFound: true };
   if (userErrors.length > 0) return { success: false };
@@ -157,7 +159,7 @@ export const useCartStore = create<CartStore>()(
               const currentItems = get().items;
               set({
                 items: currentItems.map((i) =>
-                  i.variantId === item.variantId ? { ...i, quantity: newQuantity } : i
+                  i.variantId === item.variantId ? { ...i, quantity: newQuantity } : i,
                 ),
               });
             } else if (result.cartNotFound) clearCart();
@@ -205,7 +207,11 @@ export const useCartStore = create<CartStore>()(
           if (result.success) {
             const currentItems = get().items;
             const newItems = currentItems.filter((i) => i.variantId !== variantId);
-            newItems.length === 0 ? clearCart() : set({ items: newItems });
+            if (newItems.length === 0) {
+              clearCart();
+            } else {
+              set({ items: newItems });
+            }
           } else if (result.cartNotFound) clearCart();
         } finally {
           set({ isLoading: false });
@@ -237,6 +243,6 @@ export const useCartStore = create<CartStore>()(
         cartId: state.cartId,
         checkoutUrl: state.checkoutUrl,
       }),
-    }
-  )
+    },
+  ),
 );

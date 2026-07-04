@@ -42,20 +42,25 @@ export async function storefrontApiRequest(query: string, variables: Record<stri
 
   if (response.status === 402) {
     toast.error("Shopify: Payment required", {
-      description: "Shopify API access requires an active billing plan. Visit admin.shopify.com to upgrade.",
+      description:
+        "Shopify API access requires an active billing plan. Visit admin.shopify.com to upgrade.",
     });
     return;
   }
 
   if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
   const data = await response.json();
-  if (data.errors) throw new Error(`Shopify error: ${data.errors.map((e: { message: string }) => e.message).join(", ")}`);
+  if (data.errors)
+    throw new Error(
+      `Shopify error: ${data.errors.map((e: { message: string }) => e.message).join(", ")}`,
+    );
   return data;
 }
 
 // Only sell items made of cotton or linen.
 // Matches against title, description, tags, product_type, vendor, etc.
-export const FABRIC_FILTER = "(tag:cotton OR tag:linen OR title:cotton OR title:linen OR product_type:cotton OR product_type:linen)";
+export const FABRIC_FILTER =
+  "(tag:cotton OR tag:linen OR title:cotton OR title:linen OR product_type:cotton OR product_type:linen)";
 
 export const PRODUCTS_QUERY = `
   query GetProducts($first: Int!, $query: String) {
