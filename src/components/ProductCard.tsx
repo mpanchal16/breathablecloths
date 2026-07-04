@@ -6,11 +6,7 @@ export function ProductCard({ product }: { product: ShopifyProduct }) {
   const img = p.images.edges[0]?.node;
   const price = p.priceRange.minVariantPrice;
   return (
-    <Link
-      to="/product/$handle"
-      params={{ handle: p.handle }}
-      className="group block"
-    >
+    <Link to="/product/$handle" params={{ handle: p.handle }} className="group block">
       <div className="aspect-[4/5] overflow-hidden bg-secondary rounded-sm">
         {img ? (
           <img

@@ -2,7 +2,12 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { z } from "zod";
-import { storefrontApiRequest, PRODUCTS_QUERY, FABRIC_FILTER, type ShopifyProduct } from "@/lib/shopify";
+import {
+  storefrontApiRequest,
+  PRODUCTS_QUERY,
+  FABRIC_FILTER,
+  type ShopifyProduct,
+} from "@/lib/shopify";
 import { ProductCard } from "@/components/ProductCard";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -18,7 +23,10 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "LinenCotton Yoga Co. — Yoga & Sleepwear for Slow Rituals" },
-      { name: "description", content: "Considered yoga & sleepwear in soft naturals. Free worldwide shipping over $150." },
+      {
+        name: "description",
+        content: "Considered yoga & sleepwear in soft naturals. Free worldwide shipping over $150.",
+      },
     ],
   }),
   component: Index,
@@ -57,7 +65,9 @@ function Index() {
     setTimeout(() => {
       setSending(false);
       form.reset();
-      toast.success("Message sent", { description: "The owners will get back to you within 1–2 days." });
+      toast.success("Message sent", {
+        description: "The owners will get back to you within 1–2 days.",
+      });
     }, 700);
   };
 
@@ -72,15 +82,16 @@ function Index() {
                 The Breathable &amp; Lively Line
               </p>
               <h1 className="font-display text-5xl md:text-6xl leading-[1.05]">
-                Cloth that<br />
+                Cloth that
+                <br />
                 breathes with you.
               </h1>
               <p className="mt-4 font-display italic text-xl text-foreground/80">
                 Pure Comfort for Every Move
               </p>
               <p className="mt-6 text-muted-foreground leading-relaxed">
-                Yoga and sleepwear cut only from organic cotton and linen — natural fibres
-                that move air, regulate temperature, and let your skin live freely.
+                Yoga and sleepwear cut only from organic cotton and linen — natural fibres that move
+                air, regulate temperature, and let your skin live freely.
               </p>
               <div className="mt-8 flex gap-3">
                 <Button asChild size="lg">
@@ -107,16 +118,34 @@ function Index() {
       {/* Categories */}
       <section className="container mx-auto px-6 py-24">
         <div className="grid md:grid-cols-2 gap-6">
-          <Link to="/shop" search={{ category: "yoga" }} className="group relative overflow-hidden rounded-sm">
-            <img src={yogaImg} alt="Yoga collection" loading="lazy" className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-105" />
+          <Link
+            to="/shop"
+            search={{ category: "yoga" }}
+            className="group relative overflow-hidden rounded-sm"
+          >
+            <img
+              src={yogaImg}
+              alt="Yoga collection"
+              loading="lazy"
+              className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-105"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 to-transparent" />
             <div className="absolute bottom-6 left-6 text-background">
               <p className="uppercase tracking-widest text-xs opacity-80">Move</p>
               <h2 className="font-display text-4xl mt-1">Yoga</h2>
             </div>
           </Link>
-          <Link to="/shop" search={{ category: "sleep" }} className="group relative overflow-hidden rounded-sm">
-            <img src={sleepImg} alt="Sleepwear collection" loading="lazy" className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-105" />
+          <Link
+            to="/shop"
+            search={{ category: "sleep" }}
+            className="group relative overflow-hidden rounded-sm"
+          >
+            <img
+              src={sleepImg}
+              alt="Sleepwear collection"
+              loading="lazy"
+              className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-105"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 to-transparent" />
             <div className="absolute bottom-6 left-6 text-background">
               <p className="uppercase tracking-widest text-xs opacity-80">Rest</p>
@@ -130,14 +159,18 @@ function Index() {
       <section className="bg-cream/60 border-y border-border/60">
         <div className="container mx-auto px-6 py-24 grid lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-4 lg:sticky lg:top-24">
-            <p className="uppercase tracking-[0.3em] text-xs text-muted-foreground">Why we only use</p>
+            <p className="uppercase tracking-[0.3em] text-xs text-muted-foreground">
+              Why we only use
+            </p>
             <h2 className="font-display text-5xl mt-3 leading-[1.05]">
-              Cotton<br />&amp; linen.
+              Cotton
+              <br />
+              &amp; linen.
             </h2>
             <p className="mt-6 text-muted-foreground leading-relaxed">
-              Synthetics trap heat, hold sweat, and shed microplastics into your skin and the
-              ocean. Plant fibres do the opposite — they let your body do what it&apos;s
-              designed to do: breathe.
+              Synthetics trap heat, hold sweat, and shed microplastics into your skin and the ocean.
+              Plant fibres do the opposite — they let your body do what it&apos;s designed to do:
+              breathe.
             </p>
           </div>
           <ul className="lg:col-span-8 grid sm:grid-cols-2 gap-x-10 gap-y-10">
@@ -145,9 +178,9 @@ function Index() {
               <p className="font-display text-3xl text-primary">01</p>
               <h3 className="font-display text-xl mt-2">Breathable by nature</h3>
               <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
-                Linen&apos;s hollow fibres and cotton&apos;s open weave move air constantly, so
-                heat and moisture leave the skin instead of pooling against it. You stay cool
-                in a flow, warm in stillness.
+                Linen&apos;s hollow fibres and cotton&apos;s open weave move air constantly, so heat
+                and moisture leave the skin instead of pooling against it. You stay cool in a flow,
+                warm in stillness.
               </p>
             </li>
             <li>
@@ -162,26 +195,24 @@ function Index() {
               <p className="font-display text-3xl text-primary">03</p>
               <h3 className="font-display text-xl mt-2">Kind to skin</h3>
               <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
-                Hypoallergenic, naturally antibacterial, and free of the petrochemical
-                finishes used on most activewear — gentler for sensitive skin and long hours
-                of contact.
+                Hypoallergenic, naturally antibacterial, and free of the petrochemical finishes used
+                on most activewear — gentler for sensitive skin and long hours of contact.
               </p>
             </li>
             <li>
               <p className="font-display text-3xl text-primary">04</p>
               <h3 className="font-display text-xl mt-2">A living fibre</h3>
               <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
-                Cotton and linen soften with every wash and biodegrade at the end of their
-                life. No microplastics shed into your body, your machine, or the sea.
+                Cotton and linen soften with every wash and biodegrade at the end of their life. No
+                microplastics shed into your body, your machine, or the sea.
               </p>
             </li>
             <li>
               <p className="font-display text-3xl text-primary">05</p>
               <h3 className="font-display text-xl mt-2">Better sleep</h3>
               <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
-                Stable skin temperature is one of the strongest signals for deep sleep.
-                Linen sleepwear reduces night-time overheating — the most common cause of
-                restless sleep.
+                Stable skin temperature is one of the strongest signals for deep sleep. Linen
+                sleepwear reduces night-time overheating — the most common cause of restless sleep.
               </p>
             </li>
             <li>
@@ -206,11 +237,15 @@ function Index() {
         </div>
         {data && data.length > 0 ? (
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-            {data.map((p) => <ProductCard key={p.node.id} product={p} />)}
+            {data.map((p) => (
+              <ProductCard key={p.node.id} product={p} />
+            ))}
           </div>
         ) : (
           <div className="text-center py-20 border border-dashed border-border rounded-sm">
-            <p className="text-muted-foreground">No products yet — your collection will appear here.</p>
+            <p className="text-muted-foreground">
+              No products yet — your collection will appear here.
+            </p>
           </div>
         )}
       </section>
@@ -220,15 +255,21 @@ function Index() {
         <div className="container mx-auto px-6 py-20 grid md:grid-cols-3 gap-10 text-center">
           <div>
             <h3 className="font-display text-2xl">Worldwide shipping</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Tracked delivery to over 80 countries. Free over $150.</p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Tracked delivery to over 80 countries. Free over $150.
+            </p>
           </div>
           <div>
             <h3 className="font-display text-2xl">Secure checkout</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Pay safely with card, Apple Pay, Google Pay, Shop Pay & more.</p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Pay safely with card, Apple Pay, Google Pay, Shop Pay & more.
+            </p>
           </div>
           <div>
             <h3 className="font-display text-2xl">Made to last</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Organic fabrics, gentle stitching, easy 30-day returns.</p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Organic fabrics, gentle stitching, easy 30-day returns.
+            </p>
           </div>
         </div>
       </section>
@@ -237,11 +278,13 @@ function Index() {
       <section id="contact" className="container mx-auto px-6 py-24">
         <div className="grid md:grid-cols-2 gap-14">
           <div>
-            <p className="uppercase tracking-[0.3em] text-xs text-muted-foreground">Visit & write</p>
+            <p className="uppercase tracking-[0.3em] text-xs text-muted-foreground">
+              Visit & write
+            </p>
             <h2 className="font-display text-4xl md:text-5xl mt-3">Reach the owners.</h2>
             <p className="text-muted-foreground mt-4 max-w-md leading-relaxed">
-              We're a small studio of two — drop in for a fitting, or send us a note. A real
-              person reads every message.
+              We're a small studio of two — drop in for a fitting, or send us a note. A real person
+              reads every message.
             </p>
 
             <div className="mt-10 space-y-5 text-sm">
@@ -250,8 +293,10 @@ function Index() {
                 <div>
                   <p className="font-medium">Studio hours</p>
                   <p className="text-muted-foreground mt-1">
-                    Mon – Fri · 10:00 – 18:00<br />
-                    Sat · 11:00 – 16:00<br />
+                    Mon – Fri · 10:00 – 18:00
+                    <br />
+                    Sat · 11:00 – 16:00
+                    <br />
                     Sun · closed
                   </p>
                 </div>
@@ -261,7 +306,9 @@ function Index() {
                 <div>
                   <p className="font-medium">Studio</p>
                   <p className="text-muted-foreground mt-1">
-                    Rua das Flores 42<br />4050-262 Porto, Portugal
+                    Rua das Flores 42
+                    <br />
+                    4050-262 Porto, Portugal
                   </p>
                 </div>
               </div>
@@ -269,7 +316,10 @@ function Index() {
                 <Mail className="h-5 w-5 text-primary mt-0.5 shrink-0" />
                 <div>
                   <p className="font-medium">Email the owners</p>
-                  <a href="mailto:hello@linencottonyoga.co" className="text-muted-foreground hover:text-foreground">
+                  <a
+                    href="mailto:hello@linencottonyoga.co"
+                    className="text-muted-foreground hover:text-foreground"
+                  >
                     hello@linencottonyoga.co
                   </a>
                 </div>
@@ -284,18 +334,35 @@ function Index() {
             </div>
           </div>
 
-          <form onSubmit={onContactSubmit} className="bg-secondary/60 p-8 md:p-10 rounded-sm space-y-5">
+          <form
+            onSubmit={onContactSubmit}
+            className="bg-secondary/60 p-8 md:p-10 rounded-sm space-y-5"
+          >
             <div>
               <Label htmlFor="c-name">Name</Label>
               <Input id="c-name" name="name" maxLength={100} required className="mt-2" />
             </div>
             <div>
               <Label htmlFor="c-email">Email</Label>
-              <Input id="c-email" name="email" type="email" maxLength={255} required className="mt-2" />
+              <Input
+                id="c-email"
+                name="email"
+                type="email"
+                maxLength={255}
+                required
+                className="mt-2"
+              />
             </div>
             <div>
               <Label htmlFor="c-message">Message</Label>
-              <Textarea id="c-message" name="message" maxLength={1000} required rows={6} className="mt-2" />
+              <Textarea
+                id="c-message"
+                name="message"
+                maxLength={1000}
+                required
+                rows={6}
+                className="mt-2"
+              />
             </div>
             <Button type="submit" size="lg" disabled={sending} className="w-full">
               {sending ? "Sending…" : "Send message"}

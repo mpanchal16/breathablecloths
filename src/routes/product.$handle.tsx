@@ -42,8 +42,9 @@ function ProductPage() {
 
   const matchedVariant = useMemo(() => {
     if (!product) return null;
-    return product.variants.edges.find((v: { node: { selectedOptions: Array<{ name: string; value: string }> } }) =>
-      v.node.selectedOptions.every((o) => selectedOptions[o.name] === o.value)
+    return product.variants.edges.find(
+      (v: { node: { selectedOptions: Array<{ name: string; value: string }> } }) =>
+        v.node.selectedOptions.every((o) => selectedOptions[o.name] === o.value),
     )?.node;
   }, [product, selectedOptions]);
 
@@ -59,7 +60,9 @@ function ProductPage() {
     return (
       <div className="container mx-auto px-6 py-24 text-center">
         <h1 className="font-display text-4xl">Not found</h1>
-        <Link to="/shop" className="mt-4 inline-block underline">Back to shop</Link>
+        <Link to="/shop" className="mt-4 inline-block underline">
+          Back to shop
+        </Link>
       </div>
     );
   }
@@ -87,7 +90,11 @@ function ProductPage() {
         <div>
           <div className="aspect-[4/5] bg-secondary overflow-hidden rounded-sm">
             {images[activeImg] && (
-              <img src={images[activeImg].node.url} alt={product.title} className="w-full h-full object-cover" />
+              <img
+                src={images[activeImg].node.url}
+                alt={product.title}
+                className="w-full h-full object-cover"
+              />
             )}
           </div>
           {images.length > 1 && (
@@ -108,7 +115,9 @@ function ProductPage() {
         {/* Info */}
         <div className="md:sticky md:top-24 md:self-start">
           {product.productType && (
-            <p className="uppercase tracking-widest text-xs text-muted-foreground">{product.productType}</p>
+            <p className="uppercase tracking-widest text-xs text-muted-foreground">
+              {product.productType}
+            </p>
           )}
           <h1 className="font-display text-4xl md:text-5xl mt-2">{product.title}</h1>
           <p className="mt-4 text-2xl">
@@ -134,7 +143,9 @@ function ProductPage() {
                         key={v}
                         onClick={() => setSelectedOptions({ ...selectedOptions, [opt.name]: v })}
                         className={`px-4 h-10 text-sm border rounded-sm transition-colors ${
-                          selected ? "bg-primary text-primary-foreground border-primary" : "border-border hover:border-foreground"
+                          selected
+                            ? "bg-primary text-primary-foreground border-primary"
+                            : "border-border hover:border-foreground"
                         }`}
                       >
                         {v}
@@ -152,14 +163,25 @@ function ProductPage() {
             onClick={handleAdd}
             disabled={!matchedVariant?.availableForSale || cartLoading}
           >
-            {cartLoading ? <Loader2 className="h-4 w-4 animate-spin" /> :
-              !matchedVariant?.availableForSale ? "Sold out" : "Add to cart"}
+            {cartLoading ? (
+              <Loader2 className="h-4 w-4 animate-spin" />
+            ) : !matchedVariant?.availableForSale ? (
+              "Sold out"
+            ) : (
+              "Add to cart"
+            )}
           </Button>
 
           <ul className="mt-8 space-y-3 text-sm text-muted-foreground border-t border-border pt-6">
-            <li className="flex items-center gap-3"><Truck className="h-4 w-4" /> Worldwide shipping · free over $150</li>
-            <li className="flex items-center gap-3"><Shield className="h-4 w-4" /> Secure checkout via Shop Pay</li>
-            <li className="flex items-center gap-3"><Leaf className="h-4 w-4" /> Organic, OEKO-TEX certified fabrics</li>
+            <li className="flex items-center gap-3">
+              <Truck className="h-4 w-4" /> Worldwide shipping · free over $150
+            </li>
+            <li className="flex items-center gap-3">
+              <Shield className="h-4 w-4" /> Secure checkout via Shop Pay
+            </li>
+            <li className="flex items-center gap-3">
+              <Leaf className="h-4 w-4" /> Organic, OEKO-TEX certified fabrics
+            </li>
           </ul>
         </div>
       </div>
@@ -174,7 +196,9 @@ function ProductPage() {
             ))}
           </div>
         </div>
-        <p className="text-muted-foreground">No reviews yet. Be the first to share your thoughts after your order arrives.</p>
+        <p className="text-muted-foreground">
+          No reviews yet. Be the first to share your thoughts after your order arrives.
+        </p>
       </section>
     </div>
   );

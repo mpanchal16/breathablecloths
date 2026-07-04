@@ -11,7 +11,11 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — LinenCotton Yoga Co." },
-      { name: "description", content: "Get in touch with the LinenCotton Yoga Co. studio. Email, address, hours, and a contact form." },
+      {
+        name: "description",
+        content:
+          "Get in touch with the LinenCotton Yoga Co. studio. Email, address, hours, and a contact form.",
+      },
     ],
   }),
   component: Contact,
@@ -63,7 +67,10 @@ function Contact() {
               <Mail className="h-5 w-5 text-primary mt-0.5" />
               <div>
                 <p className="font-medium">Email</p>
-                <a href="mailto:hello@linencottonyoga.co" className="text-muted-foreground hover:text-foreground">
+                <a
+                  href="mailto:hello@linencottonyoga.co"
+                  className="text-muted-foreground hover:text-foreground"
+                >
                   hello@linencottonyoga.co
                 </a>
               </div>
@@ -73,7 +80,9 @@ function Contact() {
               <div>
                 <p className="font-medium">Studio</p>
                 <p className="text-muted-foreground">
-                  Rua das Flores 42<br />4050-262 Porto, Portugal
+                  Rua das Flores 42
+                  <br />
+                  4050-262 Porto, Portugal
                 </p>
               </div>
             </div>
@@ -88,7 +97,9 @@ function Contact() {
               <Instagram className="h-5 w-5 text-primary mt-0.5" />
               <div>
                 <p className="font-medium">Social</p>
-                <a href="#" className="text-muted-foreground hover:text-foreground">@linencottonyoga</a>
+                <a href="#" className="text-muted-foreground hover:text-foreground">
+                  @linencottonyoga
+                </a>
               </div>
             </div>
           </div>

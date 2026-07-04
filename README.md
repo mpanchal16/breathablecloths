@@ -35,11 +35,11 @@ Once connected, the workflows in `.github/workflows` will sync to GitHub and run
 
 After the GitHub repository is created, add these secrets in **Settings → Secrets and variables → Actions**:
 
-| Secret | How to get it |
-|--------|---------------|
-| `CLOUDFLARE_API_TOKEN` | Cloudflare dashboard → **My Profile** → **API Tokens** → **Create Token** → use the **Cloudflare Pages** template. Grant `Zone:Read`, `Account:Read`, and `Cloudflare Pages:Edit` permissions. |
-| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare dashboard → **Workers & Pages** → copy the **Account ID** from the right sidebar. |
-| `CLOUDFLARE_PROJECT_NAME` | The name of the Cloudflare Pages project you create (or plan to create) for this app. |
+| Secret                    | How to get it                                                                                                                                                                                  |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `CLOUDFLARE_API_TOKEN`    | Cloudflare dashboard → **My Profile** → **API Tokens** → **Create Token** → use the **Cloudflare Pages** template. Grant `Zone:Read`, `Account:Read`, and `Cloudflare Pages:Edit` permissions. |
+| `CLOUDFLARE_ACCOUNT_ID`   | Cloudflare dashboard → **Workers & Pages** → copy the **Account ID** from the right sidebar.                                                                                                   |
+| `CLOUDFLARE_PROJECT_NAME` | The name of the Cloudflare Pages project you create (or plan to create) for this app.                                                                                                          |
 
 ### 3. Create the Cloudflare Pages project
 

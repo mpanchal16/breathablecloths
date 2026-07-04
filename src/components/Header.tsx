@@ -9,19 +9,39 @@ export function Header() {
           LinenCotton Yoga Co.
         </Link>
         <nav className="hidden md:flex items-center gap-8 text-sm uppercase tracking-widest">
-          <Link to="/shop" activeProps={{ className: "text-primary" }} className="hover:text-primary transition-colors">
+          <Link
+            to="/shop"
+            activeProps={{ className: "text-primary" }}
+            className="hover:text-primary transition-colors"
+          >
             Shop
           </Link>
-          <Link to="/shop" search={{ category: "yoga" }} className="hover:text-primary transition-colors">
+          <Link
+            to="/shop"
+            search={{ category: "yoga" }}
+            className="hover:text-primary transition-colors"
+          >
             Yoga
           </Link>
-          <Link to="/shop" search={{ category: "sleep" }} className="hover:text-primary transition-colors">
+          <Link
+            to="/shop"
+            search={{ category: "sleep" }}
+            className="hover:text-primary transition-colors"
+          >
             Sleep
           </Link>
-          <Link to="/about" activeProps={{ className: "text-primary" }} className="hover:text-primary transition-colors">
+          <Link
+            to="/about"
+            activeProps={{ className: "text-primary" }}
+            className="hover:text-primary transition-colors"
+          >
             Journal
           </Link>
-          <Link to="/contact" activeProps={{ className: "text-primary" }} className="hover:text-primary transition-colors">
+          <Link
+            to="/contact"
+            activeProps={{ className: "text-primary" }}
+            className="hover:text-primary transition-colors"
+          >
             Contact
           </Link>
         </nav>
@@ -46,16 +66,30 @@ export function Footer() {
         <div className="text-sm">
           <h4 className="uppercase tracking-widest text-xs text-muted-foreground mb-3">Shop</h4>
           <ul className="space-y-2">
-            <li><Link to="/shop">All</Link></li>
-            <li><Link to="/shop" search={{ category: "yoga" }}>Yoga</Link></li>
-            <li><Link to="/shop" search={{ category: "sleep" }}>Sleepwear</Link></li>
+            <li>
+              <Link to="/shop">All</Link>
+            </li>
+            <li>
+              <Link to="/shop" search={{ category: "yoga" }}>
+                Yoga
+              </Link>
+            </li>
+            <li>
+              <Link to="/shop" search={{ category: "sleep" }}>
+                Sleepwear
+              </Link>
+            </li>
           </ul>
         </div>
         <div className="text-sm">
           <h4 className="uppercase tracking-widest text-xs text-muted-foreground mb-3">Studio</h4>
           <ul className="space-y-2">
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/contact">Contact</Link>
+            </li>
             <li className="text-muted-foreground">Worldwide shipping</li>
           </ul>
         </div>

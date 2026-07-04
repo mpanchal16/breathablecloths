@@ -36,7 +36,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
         <h1 className="font-display text-3xl">Something went wrong</h1>
         <p className="mt-2 text-sm text-muted-foreground">{error.message}</p>
         <button
-          onClick={() => { router.invalidate(); reset(); }}
+          onClick={() => {
+            router.invalidate();
+            reset();
+          }}
           className="mt-6 underline underline-offset-4"
         >
           Try again
@@ -52,7 +55,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "LinenCotton Yoga Co. — Yoga & Sleepwear" },
-      { name: "description", content: "Quietly considered yoga and sleepwear, made for slow rituals. Worldwide shipping." },
+      {
+        name: "description",
+        content:
+          "Quietly considered yoga and sleepwear, made for slow rituals. Worldwide shipping.",
+      },
       { property: "og:title", content: "LinenCotton Yoga Co." },
       { property: "og:description", content: "Yoga & sleepwear for slow rituals." },
       { property: "og:type", content: "website" },
@@ -76,7 +83,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head><HeadContent /></head>
+      <head>
+        <HeadContent />
+      </head>
       <body>
         {children}
         <Scripts />

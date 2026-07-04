@@ -2,7 +2,12 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useMemo, useState } from "react";
 import { z } from "zod";
-import { storefrontApiRequest, PRODUCTS_QUERY, FABRIC_FILTER, type ShopifyProduct } from "@/lib/shopify";
+import {
+  storefrontApiRequest,
+  PRODUCTS_QUERY,
+  FABRIC_FILTER,
+  type ShopifyProduct,
+} from "@/lib/shopify";
 import { ProductCard } from "@/components/ProductCard";
 import { Button } from "@/components/ui/button";
 
@@ -16,7 +21,10 @@ export const Route = createFileRoute("/shop")({
   head: () => ({
     meta: [
       { title: "Shop — LinenCotton Yoga Co." },
-      { name: "description", content: "Browse yoga and sleepwear in soft naturals. Filter by category and size." },
+      {
+        name: "description",
+        content: "Browse yoga and sleepwear in soft naturals. Filter by category and size.",
+      },
     ],
   }),
   component: Shop,
@@ -43,18 +51,20 @@ function Shop() {
       const node = p.node;
       // Category filter
       if (category && category !== "all") {
-        const haystack = `${node.productType ?? ""} ${(node.tags ?? []).join(" ")} ${node.title}`.toLowerCase();
-        const match = category === "yoga"
-          ? /yoga|move|active|legging|sport/.test(haystack)
-          : /sleep|night|pajama|pyjama|robe|loung/.test(haystack);
+        const haystack =
+          `${node.productType ?? ""} ${(node.tags ?? []).join(" ")} ${node.title}`.toLowerCase();
+        const match =
+          category === "yoga"
+            ? /yoga|move|active|legging|sport/.test(haystack)
+            : /sleep|night|pajama|pyjama|robe|loung/.test(haystack);
         if (!match) return false;
       }
       // Size filter
       if (selectedSize) {
         const hasSize = node.variants.edges.some((v) =>
           v.node.selectedOptions.some(
-            (o) => o.name.toLowerCase() === "size" && o.value.toUpperCase() === selectedSize
-          )
+            (o) => o.name.toLowerCase() === "size" && o.value.toUpperCase() === selectedSize,
+          ),
         );
         if (!hasSize) return false;
       }
@@ -83,7 +93,11 @@ function Shop() {
                     <Link
                       to="/shop"
                       search={{ category: c, size: selectedSize }}
-                      className={category === c ? "text-primary font-medium" : "text-muted-foreground hover:text-foreground"}
+                      className={
+                        category === c
+                          ? "text-primary font-medium"
+                          : "text-muted-foreground hover:text-foreground"
+                      }
                     >
                       {c === "all" ? "All" : c === "yoga" ? "Yoga" : "Sleepwear"}
                     </Link>
@@ -114,7 +128,10 @@ function Shop() {
               </div>
               {selectedSize && (
                 <button
-                  onClick={() => { setSelectedSize(undefined); navigate({ search: { category } }); }}
+                  onClick={() => {
+                    setSelectedSize(undefined);
+                    navigate({ search: { category } });
+                  }}
                   className="text-xs underline underline-offset-4 mt-3 text-muted-foreground"
                 >
                   Clear size
@@ -139,12 +156,16 @@ function Shop() {
                 Try adjusting your filters, or check back soon.
               </p>
               <Button asChild variant="outline" className="mt-6">
-                <Link to="/shop" search={{ category: "all" }}>View all</Link>
+                <Link to="/shop" search={{ category: "all" }}>
+                  View all
+                </Link>
               </Button>
             </div>
           ) : (
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-              {filtered.map((p) => <ProductCard key={p.node.id} product={p} />)}
+              {filtered.map((p) => (
+                <ProductCard key={p.node.id} product={p} />
+              ))}
             </div>
           )}
         </div>
