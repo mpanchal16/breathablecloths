@@ -293,7 +293,7 @@ function Index() {
                 <div>
                   <p className="font-medium">Studio hours</p>
                   <p className="text-muted-foreground mt-1">
-                    Mon – Fri · 10:00 – 18:00
+                    Mon – Fri · 8:00 – 20:00
                     <br />
                     Sat · 11:00 – 16:00
                     <br />
@@ -306,9 +306,9 @@ function Index() {
                 <div>
                   <p className="font-medium">Studio</p>
                   <p className="text-muted-foreground mt-1">
-                    Rua das Flores 42
+                    Motera Stadium Road
                     <br />
-                    4050-262 Porto, Portugal
+                    Motera, Ahmedabad, Gujarat, India
                   </p>
                 </div>
               </div>
@@ -317,7 +317,7 @@ function Index() {
                 <div>
                   <p className="font-medium">Email the owners</p>
                   <a
-                    href="mailto:hello@linencottonyoga.co"
+                    href="mailto:linencottonliving@gmail.com"
                     className="text-muted-foreground hover:text-foreground"
                   >
                     hello@linencottonyoga.co
@@ -328,7 +328,7 @@ function Index() {
                 <Phone className="h-5 w-5 text-primary mt-0.5 shrink-0" />
                 <div>
                   <p className="font-medium">Phone</p>
-                  <p className="text-muted-foreground mt-1">+351 220 000 000</p>
+                  <p className="text-muted-foreground mt-1"></p>
                 </div>
               </div>
             </div>
