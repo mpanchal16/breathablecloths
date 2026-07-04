@@ -10,11 +10,11 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — LinenCotton Yoga Co." },
+      { title: "Contact — LinenCotton Living" },
       {
         name: "description",
         content:
-          "Get in touch with the LinenCotton Yoga Co. studio. Email, address, hours, and a contact form.",
+          "Get in touch with the LinenCotton Living studio. Email, address, hours, and a contact form.",
       },
     ],
   }),
@@ -68,10 +68,10 @@ function Contact() {
               <div>
                 <p className="font-medium">Email</p>
                 <a
-                  href="mailto:hello@linencottonyoga.co"
+                  href="mailto:linencottonliving@gmail.com"
                   className="text-muted-foreground hover:text-foreground"
                 >
-                  hello@linencottonyoga.co
+                  linencottonliving@gmail.com
                 </a>
               </div>
             </div>
@@ -80,9 +80,9 @@ function Contact() {
               <div>
                 <p className="font-medium">Studio</p>
                 <p className="text-muted-foreground">
-                  Rua das Flores 42
+                  Motera, Ahmedabad,
                   <br />
-                  4050-262 Porto, Portugal
+                  Gujarat, India
                 </p>
               </div>
             </div>
@@ -90,7 +90,7 @@ function Contact() {
               <Clock className="h-5 w-5 text-primary mt-0.5" />
               <div>
                 <p className="font-medium">Hours</p>
-                <p className="text-muted-foreground">Mon–Fri · 9:00–17:00 WET</p>
+                <p className="text-muted-foreground">Mon–Fri · 7:00–9:00 PM EST</p>
               </div>
             </div>
             <div className="flex gap-3">
@@ -98,7 +98,7 @@ function Contact() {
               <div>
                 <p className="font-medium">Social</p>
                 <a href="#" className="text-muted-foreground hover:text-foreground">
-                  @linencottonyoga
+                  @linencottonliving
                 </a>
               </div>
             </div>
