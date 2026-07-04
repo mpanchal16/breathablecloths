@@ -212,7 +212,6 @@ export const useCartStore = create<CartStore>()(
             } else {
               set({ items: newItems });
             }
-
           } else if (result.cartNotFound) clearCart();
         } finally {
           set({ isLoading: false });
