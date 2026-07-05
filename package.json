@@ -5,11 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build",
+    "build": "vite build && npm run bundle-worker",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "bundle-worker": "esbuild src/server.ts --bundle --platform=browser --target=es2022 --format=esm --outfile=dist/server.js"
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.25.5",
@@ -84,6 +85,7 @@
     "prettier": "^3.7.3",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.56.1",
-    "vite": "^7.3.1"
+    "vite": "^7.3.1",
+    "esbuild": "^0.18.0"
   }
 }
