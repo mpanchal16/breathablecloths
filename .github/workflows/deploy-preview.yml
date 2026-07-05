@@ -35,7 +35,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: a7d8db05cfb6d4d546c3703a43cec0a6
-          projectName: linenliving
+          projectName: breathablecloths
           directory: dist/client         
           branch: ${{ github.head_ref || github.ref_name }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
