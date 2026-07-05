@@ -7,9 +7,26 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-// @cloudflare/vite-plugin builds from this — wrangler.jsonc main alone is insufficient.
-export default defineConfig({
+// Configure Vite to emit a single ESM server bundle at dist/server.js when doing an SSR build.
+export default defineConfig(({ command, ssrBuild }) => ({
   tanstackStart: {
     server: { entry: "server" },
   },
-});
+  vite: {
+    build: ssrBuild
+      ? {
+          outDir: "dist",
+          // When running the SSR build after the client build, don't wipe the client output
+          emptyOutDir: false,
+          rollupOptions: {
+            input: "src/server.ts",
+            output: {
+              // Emit a single entry file named server.js so Wrangler can use it as main
+              entryFileNames: "server.js",
+              format: "es",
+            },
+          },
+        }
+      : undefined,
+  },
+}));
