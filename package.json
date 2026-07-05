@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "bundle-worker": "esbuild src/server.ts --bundle --platform=browser --target=es2022 --format=esm --outfile=dist/server.js"
+    "bundle-worker": "esbuild src/server.ts --bundle --platform=browser --target=es2022 --format=esm --outfile=dist/server.js",
+    "build:bun": "bunx vite build && bunx esbuild src/server.ts --bundle --platform=browser --target=es2022 --format=esm --outfile=dist/server.js"
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.25.5",
