@@ -6,7 +6,7 @@ Pure Comfort for Every Move.
 
 ```bash
 bun install
-bun run dev
+bun run dev.
 ```
 
 ## Build & lint
