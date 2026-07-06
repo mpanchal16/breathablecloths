@@ -320,7 +320,7 @@ function Index() {
                     href="mailto:linencottonliving@gmail.com"
                     className="text-muted-foreground hover:text-foreground"
                   >
-                    linencottonyoga@gmail.com
+                    linencottonliving@gmail.com
                   </a>
                 </div>
               </div>
